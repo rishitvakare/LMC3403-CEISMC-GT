@@ -1505,3 +1505,27 @@ align-items: flex-start;
     }
 }
 
+
+.pathway-result-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.pathway-return {
+  border: 1px solid var(--pathway-line);
+  border-radius: 5px;
+  background: white;
+  color: var(--pathway-ink);
+  padding: 14px 20px;
+  font: inherit;
+  font-size: 0.94rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.pathway-return:hover {
+  background: #f2f6f5;
+}

@@ -686,6 +686,737 @@
     </section>
 
 
+<!-- STUDENT PATHWAY SECTION -->
+<section class="student-pathway" id="student-pathway">
+  <div class="pathway-inner">
+
+<div class="pathway-intro">
+  <span class="pathway-eyebrow">HOW CAN I GET STARTED AS A STUDENT?</span>
+
+  <h2>
+    Beyond the classroom.<br>
+    <span>Where could you start?</span>
+  </h2>
+
+  <p>
+    Not every student has access to these opportunities through their
+    school. But that doesn't mean you have to wait to get started.
+    Whether you're discovering computer science for the first time
+    or looking for your next challenge, there's a way to explore.
+  </p>
+
+   <p>
+        You don't need experience, expensive equipment, or even an idea
+        to get started. Tell us a little about what interests you, and
+        we'll help you find a starter project that's right for you. And if you discover a passion for CS along the way, CEISMC's programs and educational opportunities can help you take that interest even further.
+    </p>
+
+
+  <button class="pathway-start" id="pathway-start">
+    Find my starting point <span aria-hidden="true">→</span>
+  </button>
+
+  <p class="pathway-note">
+    A few quick questions · No experience needed
+  </p>
+</div>
+
+
+    <div class="pathway-visual" id="pathway-visual" aria-hidden="true">
+      <div class="pathway-orbit orbit-one"></div>
+      <div class="pathway-orbit orbit-two"></div>
+      <div class="pathway-center">✳</div>
+      <div class="pathway-float float-one">💡</div>
+      <div class="pathway-float float-two">🎨</div>
+      <div class="pathway-float float-three">🌱</div>
+      <div class="pathway-float float-four">🎮</div>
+      <span class="pathway-visual-caption">Your ideas can go anywhere.</span>
+    </div>
+
+    <div class="pathway-quiz" id="pathway-quiz" hidden>
+      <div class="pathway-quiz-top">
+        <span class="pathway-step" id="pathway-step">QUESTION 1 OF 3</span>
+        <button class="pathway-exit" id="pathway-exit" type="button">
+          Exit ✕
+        </button>
+      </div>
+
+      <div class="pathway-progress">
+        <div class="pathway-progress-fill" id="pathway-progress-fill"></div>
+      </div>
+
+      <div id="pathway-question-area" aria-live="polite">
+        <h3 id="pathway-question"></h3>
+        <p id="pathway-subtitle"></p>
+        <div class="pathway-options" id="pathway-options"></div>
+      </div>
+
+      <div class="pathway-navigation">
+        <button class="pathway-back" id="pathway-back" type="button" hidden>
+          ← Back
+        </button>
+        <button class="pathway-next" id="pathway-next" type="button" disabled>
+          Next →
+        </button>
+      </div>
+    </div>
+
+    <div class="pathway-results" id="pathway-results" hidden aria-live="polite">
+      <span class="pathway-eyebrow">YOUR STARTING POINT</span>
+      <h3 id="pathway-result-title">Your ideas, your first project.</h3>
+      <p id="pathway-result-intro"></p>
+      <div class="pathway-projects" id="pathway-projects"></div>
+      <div class="pathway-result-actions">
+        <button class="pathway-start" id="pathway-restart" type="button">
+          Start over ↻
+        </button>
+        <button class="pathway-return" id="pathway-return" type="button">
+    ← Back to the website
+  </button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+.student-pathway {
+  --pathway-ink: #142c42;
+  --pathway-muted: #647587;
+  --pathway-accent: #d69d37;
+  --pathway-line: #dce5e9;
+  padding: clamp(64px, 8vw, 110px) 6%;
+ background: #f9f6ee;
+  color: var(--pathway-ink);
+  overflow: hidden;
+}
+
+.pathway-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.pathway-intro {
+  max-width: 650px;
+  position: relative;
+  z-index: 1;
+}
+
+.pathway-eyebrow {
+  display: inline-block;
+  color: #a8751e;
+  font-size: 0.76rem;
+  font-weight: 750;
+  letter-spacing: 0.13em;
+  margin-bottom: 18px;
+}
+
+.pathway-intro h2 {
+  font-size: clamp(2.1rem, 4.4vw, 3.6rem);
+  line-height: 1.12;
+  letter-spacing: -0.045em;
+  margin: 0 0 22px;
+  color: var(--pathway-ink);
+}
+
+.pathway-intro h2 span {
+  color: #397b78;
+}
+
+.pathway-intro > p:not(.pathway-note) {
+  max-width: 570px;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--pathway-muted);
+  margin: 0 0 28px;
+}
+
+.pathway-start,
+.pathway-next {
+  border: 0;
+  border-radius: 5px;
+  background: var(--pathway-ink);
+  color: white;
+  padding: 15px 23px;
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 650;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.pathway-start:hover,
+.pathway-next:not(:disabled):hover {
+  background: #285c60;
+  transform: translateY(-2px);
+}
+
+.pathway-start span {
+  margin-left: 12px;
+}
+
+.pathway-note {
+  font-size: 0.82rem;
+  color: var(--pathway-muted);
+  margin-top: 14px;
+}
+
+.pathway-visual {
+  position: absolute;
+  width: 330px;
+  height: 330px;
+  right: 3%;
+  top: 0;
+}
+
+.pathway-orbit {
+  position: absolute;
+  border: 1px solid #cbdcda;
+  border-radius: 50%;
+  inset: 20px;
+}
+
+.orbit-two {
+  inset: 65px;
+  border-style: dashed;
+}
+
+.pathway-center {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 100px;
+  height: 100px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #dcebe5;
+  color: #397b78;
+  font-size: 3rem;
+}
+
+.pathway-float {
+  position: absolute;
+  width: 54px;
+  height: 54px;
+  display: grid;
+  place-items: center;
+  background: white;
+  border: 1px solid var(--pathway-line);
+  border-radius: 16px;
+  font-size: 1.55rem;
+  box-shadow: 0 8px 25px #142c4210;
+}
+
+.float-one { top: 12px; left: 135px; }
+.float-two { top: 125px; right: 0; }
+.float-three { bottom: 15px; left: 135px; }
+.float-four { top: 125px; left: 0; }
+
+.pathway-visual-caption {
+  position: absolute;
+  bottom: -24px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: var(--pathway-muted);
+  font-size: 0.83rem;
+}
+
+.pathway-quiz,
+.pathway-results {
+  max-width: 760px;
+  margin: 48px auto 0;
+  padding: clamp(22px, 5vw, 42px);
+  background: white;
+  border: 1px solid var(--pathway-line);
+  border-radius: 12px;
+  box-shadow: 0 14px 40px #142c4209;
+}
+
+.pathway-quiz-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.pathway-step {
+  font-size: 0.75rem;
+  font-weight: 750;
+  letter-spacing: 0.1em;
+  color: #397b78;
+}
+
+.pathway-exit,
+.pathway-back {
+  background: none;
+  border: 0;
+  color: var(--pathway-muted);
+  font: inherit;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.pathway-progress {
+  height: 5px;
+  background: #e9efed;
+  border-radius: 10px;
+  margin: 18px 0 34px;
+  overflow: hidden;
+}
+
+.pathway-progress-fill {
+  height: 100%;
+  width: 33.33%;
+  background: #397b78;
+  border-radius: inherit;
+  transition: width 0.25s;
+}
+
+.pathway-quiz h3,
+.pathway-results h3 {
+  font-size: clamp(1.55rem, 3vw, 2.1rem);
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  margin: 0 0 10px;
+}
+
+.pathway-quiz #pathway-subtitle,
+.pathway-result-intro {
+  color: var(--pathway-muted);
+  line-height: 1.65;
+  margin: 0 0 24px;
+}
+
+.pathway-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.pathway-option {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  text-align: left;
+  width: 100%;
+  min-height: 70px;
+  padding: 15px;
+  background: #fbfcfc;
+  border: 1px solid var(--pathway-line);
+  border-radius: 8px;
+  color: var(--pathway-ink);
+  font: inherit;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.pathway-option:hover {
+  border-color: #79a9a3;
+  background: #f3f8f6;
+}
+
+.pathway-option[aria-pressed="true"] {
+  border: 2px solid #397b78;
+  background: #edf5f1;
+  padding: 14px;
+}
+
+.pathway-option-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.pathway-option-label {
+  font-size: 0.94rem;
+  font-weight: 600;
+}
+
+.pathway-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.pathway-next:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.pathway-projects {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 26px;
+}
+
+.pathway-project {
+  border: 1px solid var(--pathway-line);
+  border-radius: 9px;
+  padding: 21px;
+  background: #fbfcfc;
+}
+
+.pathway-project-icon {
+  font-size: 1.7rem;
+  margin-bottom: 12px;
+}
+
+.pathway-project h4 {
+  font-size: 1.08rem;
+  margin: 0 0 9px;
+  color: var(--pathway-ink);
+}
+
+.pathway-project p {
+  font-size: 0.91rem;
+  line-height: 1.65;
+  color: var(--pathway-muted);
+  margin: 0 0 14px;
+}
+
+.pathway-project a {
+  color: #286d69;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.pathway-result-actions {
+  margin-top: 24px;
+}
+
+.pathway-quiz button:focus-visible,
+.pathway-results button:focus-visible,
+.pathway-intro button:focus-visible,
+.pathway-project a:focus-visible {
+  outline: 3px solid #d69d37;
+  outline-offset: 3px;
+}
+
+@media (max-width: 850px) {
+  .pathway-visual {
+    opacity: 0.25;
+    right: -90px;
+  }
+
+  .pathway-intro {
+    max-width: 620px;
+  }
+}
+
+@media (max-width: 600px) {
+  .student-pathway {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .pathway-visual {
+    display: none;
+  }
+
+  .pathway-options,
+  .pathway-projects {
+    grid-template-columns: 1fr;
+  }
+
+  .pathway-quiz,
+  .pathway-results {
+    margin-top: 34px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .student-pathway *,
+  .student-pathway *::before,
+  .student-pathway *::after {
+    transition-duration: 0.01ms !important;
+  }
+}
+</style>
+
+<script>
+(() => {
+  const root = document.querySelector("#student-pathway");
+  if (!root || root.dataset.initialized) return;
+  root.dataset.initialized = "true";
+
+  const questions = [
+    {
+      title: "What kinds of things get you excited?",
+      subtitle: "Choose the one that sounds most interesting. There are no wrong answers.",
+      options: [
+        { icon: "🎮", label: "Games, stories & creativity", value: "creative" },
+        { icon: "🌱", label: "Nature, animals & the environment", value: "environment" },
+        { icon: "🤖", label: "Technology, AI & how things work", value: "technology" },
+        { icon: "🤝", label: "Helping people & solving problems", value: "people" }
+      ]
+    },
+    {
+      title: "How much coding have you done?",
+      subtitle: "This just helps us suggest a comfortable place to begin.",
+      options: [
+        { icon: "🌟", label: "I'm completely new to it", value: "new" },
+        { icon: "🧩", label: "I've tried a little bit", value: "some" },
+        { icon: "💻", label: "I've built a few things already", value: "experienced" }
+      ]
+    },
+    {
+      title: "What resources do you have access to?",
+      subtitle: "We'll keep your suggestions realistic for what you can use.",
+      options: [
+        { icon: "📱", label: "A phone or tablet", value: "mobile" },
+        { icon: "💻", label: "A computer with internet", value: "computer" },
+        { icon: "🔧", label: "A computer and some hands-on materials", value: "materials" },
+        { icon: "🌐", label: "Not sure yet / limited access", value: "limited" }
+      ]
+    }
+  ];
+
+  const projects = {
+    creative: [
+      {
+        icon: "🎮",
+        title: "Make your own interactive story",
+        description: "Create a character, design a world, and build a story where the reader decides what happens next. Start with visual, block-based coding.",
+        link: "https://scratch.mit.edu/",
+        linkText: "Explore Scratch"
+      },
+      {
+        icon: "🎵",
+        title: "Turn ideas into music",
+        description: "Experiment with beats, loops, and code to create your own musical composition.",
+        link: "https://earsketch.gatech.edu/",
+        linkText: "Explore EarSketch"
+      }
+    ],
+    environment: [
+      {
+        icon: "🌎",
+        title: "Explore your environment with data",
+        description: "Choose a question about your neighborhood or the natural world. Collect observations, organize them, and turn what you discover into a visual story.",
+        link: "https://www.data.gov/",
+        linkText: "Explore public data"
+      },
+      {
+        icon: "🌱",
+        title: "Design a smarter garden",
+        description: "Explore how sensors and simple code can help plants grow. Sketch a solution, then experiment with a small prototype.",
+        link: "https://microbit.org/",
+        linkText: "Explore micro:bit"
+      }
+    ],
+    technology: [
+      {
+        icon: "🤖",
+        title: "Build a simple AI experiment",
+        description: "Explore how computers recognize patterns by training a simple model and testing it with examples.",
+        link: "https://teachablemachine.withgoogle.com/",
+        linkText: "Try Teachable Machine"
+      },
+      {
+        icon: "🧩",
+        title: "Create a coding challenge",
+        description: "Build a small game or puzzle, then experiment with the logic that makes it work.",
+        link: "https://scratch.mit.edu/",
+        linkText: "Explore Scratch"
+      }
+    ],
+    people: [
+      {
+        icon: "💡",
+        title: "Invent a solution for your community",
+        description: "Identify a problem people around you experience. Design a digital tool, prototype, or interactive idea that could make a difference.",
+        link: "https://scratch.mit.edu/",
+        linkText: "Start building with Scratch"
+      },
+      {
+        icon: "🌐",
+        title: "Create an interactive information hub",
+        description: "Choose a cause you care about and build a simple website or interactive presentation to help others understand it.",
+        link: "https://code.org/",
+        linkText: "Explore Code.org"
+      }
+    ]
+  };
+
+  const start = root.querySelector("#pathway-start");
+  const intro = root.querySelector(".pathway-intro");
+  const visual = root.querySelector("#pathway-visual");
+  const quiz = root.querySelector("#pathway-quiz");
+  const results = root.querySelector("#pathway-results");
+  const questionTitle = root.querySelector("#pathway-question");
+  const subtitle = root.querySelector("#pathway-subtitle");
+  const optionsArea = root.querySelector("#pathway-options");
+  const step = root.querySelector("#pathway-step");
+  const progress = root.querySelector("#pathway-progress-fill");
+  const next = root.querySelector("#pathway-next");
+  const back = root.querySelector("#pathway-back");
+  const exit = root.querySelector("#pathway-exit");
+  const restart = root.querySelector("#pathway-restart");
+  const returnButton = root.querySelector("#pathway-return");
+  let current = 0;
+  let answers = [];
+
+  function renderQuestion() {
+    const question = questions[current];
+    const selected = answers[current];
+
+    step.textContent = `QUESTION ${current + 1} OF ${questions.length}`;
+    progress.style.width = `${((current + 1) / questions.length) * 100}%`;
+    questionTitle.textContent = question.title;
+    subtitle.textContent = question.subtitle;
+    optionsArea.replaceChildren();
+
+    question.options.forEach(option => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "pathway-option";
+      button.setAttribute("aria-pressed", String(selected === option.value));
+
+      const icon = document.createElement("span");
+      icon.className = "pathway-option-icon";
+      icon.textContent = option.icon;
+
+      const label = document.createElement("span");
+      label.className = "pathway-option-label";
+      label.textContent = option.label;
+
+      button.append(icon, label);
+      button.addEventListener("click", () => {
+        answers[current] = option.value;
+        optionsArea.querySelectorAll("button").forEach(item => {
+          item.setAttribute("aria-pressed", "false");
+        });
+        button.setAttribute("aria-pressed", "true");
+        next.disabled = false;
+      });
+
+      optionsArea.append(button);
+    });
+
+    next.disabled = !selected;
+    next.textContent = current === questions.length - 1
+      ? "See my ideas →"
+      : "Next →";
+    back.hidden = current === 0;
+  }
+
+  function showQuiz() {
+    current = 0;
+    answers = [];
+    intro.hidden = true;
+    visual.hidden = true;
+    results.hidden = true;
+    quiz.hidden = false;
+    renderQuestion();
+    questionTitle.focus?.();
+  }
+
+  function showResults() {
+    quiz.hidden = true;
+    results.hidden = false;
+
+    const interest = answers[0];
+    const experience = answers[1];
+    const resource = answers[2];
+
+    const suggestions = [...projects[interest]];
+
+    // Adapt the suggestions to the student's experience and resources.
+    if (experience === "new") {
+      suggestions.forEach(project => {
+        project.description += " It's a beginner-friendly way to explore the idea without needing prior coding experience.";
+      });
+    }
+
+    if (resource === "mobile" || resource === "limited") {
+      suggestions[0].description += " If you don't have access to a computer right now, start by sketching your idea or planning how it would work.";
+    }
+
+    root.querySelector("#pathway-result-title").textContent =
+      experience === "new"
+        ? "Everyone starts somewhere. Here's yours."
+        : "Your next idea starts here.";
+
+    root.querySelector("#pathway-result-intro").textContent =
+      "Based on what you're interested in, here are two directions you could explore. Pick the one that catches your eye — and make it your own.";
+
+    const container = root.querySelector("#pathway-projects");
+    container.replaceChildren();
+
+    suggestions.forEach(project => {
+      const card = document.createElement("article");
+      card.className = "pathway-project";
+
+      const icon = document.createElement("div");
+      icon.className = "pathway-project-icon";
+      icon.textContent = project.icon;
+
+      const heading = document.createElement("h4");
+      heading.textContent = project.title;
+
+      const description = document.createElement("p");
+      description.textContent = project.description;
+
+      const link = document.createElement("a");
+      link.href = project.link;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      link.textContent = project.linkText;
+
+      card.append(icon, heading, description, link);
+      container.append(card);
+    });
+  }
+
+  start.addEventListener("click", showQuiz);
+  restart.addEventListener("click", showQuiz);
+
+  exit.addEventListener("click", () => {
+    quiz.hidden = true;
+    intro.hidden = false;
+    visual.hidden = false;
+  });
+
+  returnButton.addEventListener("click", () => {
+  results.hidden = true;
+  intro.hidden = false;
+  visual.hidden = false;
+  answers = [];
+  current = 0;
+
+  root.scrollIntoView({ behavior: "smooth", block: "start" });
+});
+
+  back.addEventListener("click", () => {
+    if (current > 0) {
+      current--;
+      renderQuestion();
+    }
+  });
+
+  next.addEventListener("click", () => {
+    if (!answers[current]) return;
+
+    if (current < questions.length - 1) {
+      current++;
+      renderQuestion();
+    } else {
+      showResults();
+    }
+  });
+})();
+</script>
+<!-- END STUDENT PATHWAY SECTION -->
+
+
     <!-- 06: TESTIMONIALS AND VIDEO -->
     <section class="section quotes">
         <div class="wrap">
